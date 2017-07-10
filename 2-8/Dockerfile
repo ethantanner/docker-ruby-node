@@ -69,7 +69,10 @@ RUN apt-get update && apt-get install -y \
     php7.0-mysql \
     php7.0-opcache \
     php7.0-mbstring \
-    php7.0-simplexml
+    php7.0-simplexml \
+    php7.0-zip \
+    zip \
+    unzip 
     
 RUN apt-get install -y \
     apt-transport-https
