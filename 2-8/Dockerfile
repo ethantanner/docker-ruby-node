@@ -54,10 +54,14 @@ RUN YARN_VERSION=$(curl -sSL --compressed https://yarnpkg.com/latest-version) \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   
-ADD compile-php.sh /
-
-ADD php.ini /
-
-RUN chmod +x ./compile-php.sh
-
-RUN ./compile-php.sh
+RUN apt-get update && apt-get install -y \
+    php7.0-common \
+    php7.0-cli \
+    php7.0-curl \
+    php7.0-gd \
+    php7.0-imagick \
+    php7.0-intl \
+    php7.0-json \
+    php7.0-mcrypt \
+    php7.0-mysql \
+    php7.0-opcache
