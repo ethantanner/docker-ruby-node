@@ -68,3 +68,6 @@ RUN apt-get update && apt-get install -y \
     php7.0-mcrypt \
     php7.0-mysql \
     php7.0-opcache
+    
+RUN apt-get install -y \
+    apt-transport-https
