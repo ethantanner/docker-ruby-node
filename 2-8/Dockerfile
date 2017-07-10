@@ -53,3 +53,11 @@ RUN YARN_VERSION=$(curl -sSL --compressed https://yarnpkg.com/latest-version) \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+  
+ADD compile-php.sh /
+
+ADD php.ini /
+
+RUN chmod +x ./compile-php.sh
+
+RUN ./compile-php.sh
