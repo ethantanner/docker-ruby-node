@@ -54,6 +54,9 @@ RUN YARN_VERSION=$(curl -sSL --compressed https://yarnpkg.com/latest-version) \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
   
+RUN echo "deb http://packages.dotdeb.org jessie all" >> /etc/apt/sources.list
+RUN wget https://www.dotdeb.org/dotdeb.gpg
+RUN apt-key add dotdeb.gpg
 RUN apt-get update && apt-get install -y \
     php7.0-common \
     php7.0-cli \
